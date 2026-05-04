@@ -19,7 +19,7 @@ describe("Student Registration page", () => {
     cy.get(".react-datepicker__year-select").select("2026");
     cy.get(".react-datepicker__month-select").select("May");
 
-    cy.contains(".react-datepicker__day", "04").not(".react-datepicker__day--outside-month").click({ timeout: 10000 });
+    cy.get(".react-datepicker__day--004").not(".react-datepicker__day--outside-month").click();
 
     cy.get("#subjectsInput").type("Computer Science{enter}");
 
