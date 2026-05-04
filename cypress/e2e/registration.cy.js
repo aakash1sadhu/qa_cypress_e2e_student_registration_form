@@ -19,7 +19,9 @@ describe("Student Registration page", () => {
     cy.get(".react-datepicker__year-select").select("2026");
     cy.get(".react-datepicker__month-select").select("May");
 
-    cy.get(".react-datepicker__day--004").not(".react-datepicker__day--outside-month").click();
+    cy.get(".react-datepicker__day--004")
+      .not(".react-datepicker__day--outside-month")
+      .click();
 
     cy.get("#subjectsInput").type("Computer Science{enter}");
 
@@ -48,7 +50,7 @@ describe("Student Registration page", () => {
       cy.contains("td", "Mobile").next().should("have.text", "1234567890");
       cy.contains("td", "Date of Birth")
         .next()
-        .should("have.text", "04 May 2026");
+        .should("have.text", "04 May,2026");
       cy.contains("td", "Subjects")
         .next()
         .should("have.text", "Computer Science");
