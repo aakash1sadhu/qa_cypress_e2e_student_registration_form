@@ -13,12 +13,13 @@ describe("Student Registration page", () => {
     cy.contains("label", "Male").click();
     cy.get("#userNumber").type("1234567890");
 
-    cy.get("#dateOfBirthInput").click();
+    cy.get(".react-datepicker__input-container input").click();
+    cy.get(".react-datepicker").should("be.visible");
 
     cy.get(".react-datepicker__year-select").select("2026");
     cy.get(".react-datepicker__month-select").select("May");
 
-    cy.contains(".react-datepicker__day", "04").click();
+    cy.contains(".react-datepicker__day", "04").not(".react-datepicker__day--outside-month").click({ timeout: 10000 });
 
     cy.get("#subjectsInput").type("Computer Science{enter}");
 
